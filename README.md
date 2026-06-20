@@ -109,8 +109,19 @@ await window.$send('accounts-bank-sync', { ids: [] });
 
 ### Reproduction Evidence
 
-- **Branch:** [fix-issue-4742](https://github.com/birajlamichhane/actual/tree/fix-issue-4742)
-- **My findings:** Queried the sync server's database directly and confirmed the secrets table has 0 rows after setup, proving `secretsService.get('gocardless_secretId')` returns null. Sent a real POST request to `/gocardless/transactions` and received `error_code: "UNKNOWN"` with the underlying GoCardless 400 error `"secret_id: This field is required"` buried inside — proving the server receives a meaningful error but discards it in favor of a generic UNKNOWN response.
+### Reproduction Evidence
+- **Screenshots:** 
+  - Bank sync failure toast notification
+  <img width="1912" height="911" alt="Screenshot 2026-06-19 210231" src="https://github.com/user-attachments/assets/5b41aa7e-7165-472b-ada9-f1394bee5b91" />
+  
+  - Generic internal error popup with no recovery path
+<img width="1908" height="882" alt="Screenshot 2026-06-19 210330" src="https://github.com/user-attachments/assets/99ec8af7-4327-4929-ade4-b50e358f6db3" />
+
+- **My findings:** The secrets table on the sync server 
+  has 0 rows after setup. Syncing returns error_code: 
+  'UNKNOWN' instead of a meaningful error. The UI shows 
+  a generic internal error with only "Unlink account" 
+  button and no way to re-enter GoCardless credentials.
 
 ---
 
