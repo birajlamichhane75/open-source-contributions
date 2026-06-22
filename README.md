@@ -142,7 +142,7 @@ Define one new specific error code on the server (`GOCARDLESS_NOT_CONFIGURED`) w
 When GoCardless credentials are missing after a backup restore, the app shows a generic "internal error" with no recovery path. The user has no idea their credentials are missing or how to fix it. The expected behavior is a clear error message that tells the user exactly what went wrong.
 
 **Match:**
-The `ITEM_LOGIN_REQUIRED` error code in `AccountSyncCheck.tsx` already follows the exact pattern I needed — it shows a specific message for a specific error code. I followed this same pattern for the missing credentials case. The `isConfigured()` method already existed in `gocardless-service.ts` but was never used in the `/transactions` handler — I used it as the guard.
+The `ITEM_LOGIN_REQUIRED` error code in `AccountSyncCheck.tsx` already follows the exact pattern I needed, it shows a specific message for a specific error code. I followed this same pattern for the missing credentials case. The `isConfigured()` method already existed in `gocardless-service.ts` but was never used in the `/transactions` handler — I used it as the guard.
 
 **Plan:**
 1. In `packages/sync-server/src/app-gocardless/app-gocardless.ts` — add an `isConfigured()` check at the start of the `/transactions` handler. If credentials are missing, return `error_code: 'GOCARDLESS_NOT_CONFIGURED'` immediately instead of continuing.
