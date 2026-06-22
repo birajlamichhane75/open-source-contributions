@@ -168,7 +168,7 @@ https://github.com/birajlamichhane75/actual/tree/fix-issue-4742
 ## Testing Strategy
 
 ### Unit Tests
-- [x] Test that `/transactions` endpoint returns `GOCARDLESS_NOT_CONFIGURED` when `isConfigured()` is false — added in `packages/sync-server/src/app-gocardless/tests/transactions.spec.ts`
+- Test that `/transactions` endpoint returns `GOCARDLESS_NOT_CONFIGURED` when `isConfigured()` is false — added in `packages/sync-server/src/app-gocardless/tests/transactions.spec.ts`
 
 ### Manual Testing
 
