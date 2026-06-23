@@ -201,13 +201,10 @@ I also wrote a unit test that confirms the guard works correctly, ran typecheck 
 
 ## Pull Request
 
-*(To be filled in during Phase IV)*
 
 ---
 
 ## Learnings & Reflections
-
-*(To be filled in at the end of the program)*
 
 ---
 
