@@ -201,12 +201,14 @@ I also wrote a unit test that confirms the guard works correctly, ran typecheck 
 
 ## Pull Request
 
-
+**PR Link:** https://github.com/actualbudget/actual/pull/8411
+**PR Description:** Added isConfigured() guard on the sync server 
+that returns GOCARDLESS_NOT_CONFIGURED when credentials are missing, 
+plus a matching error message on the frontend so users see a clear, 
+actionable message instead of a generic internal error.
+**Status:** Awaiting review
 ---
 
-## Learnings & Reflections
-
----
 
 ## Resources Used
 
